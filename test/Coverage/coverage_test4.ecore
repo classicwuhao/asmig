@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
+  <eClassifiers xsi:type="ecore:EClass" name="Lock" eSuperTypes="#//Formula">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="key" upperBound="-1" eType="#//Key"
+        eOpposite="#//Key/lock"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Formula" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Key">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lock" lowerBound="1" eType="#//Lock"
+        eOpposite="#//Lock/key"/>
+  </eClassifiers>
+</ecore:EPackage>

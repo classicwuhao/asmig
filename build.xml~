@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!-- Build file for ASMIG Written by: Hao Wu -->
+<project name="atongmu" default="build" basedir=".">
+	<!-- define Java source and target version -->
+	<property name="java.targetversion" value="1.6" />
+	<property name="java.sourceversion" value="1.6" />
+	<!-- source -->
+	<property name="src.dir"  location="${basedir}/src/" />
+	<!-- target -->
+	<property name="build.dir"          location="${basedir}/build"/>
+	<property name="build.classes.dir"  location="${build.dir}/classes"/>
+	<property name="build.classes.parser.dir"  location="${build.dir}/classes/parser"/>
+	<property name="parser.dir"         location="${basedir}/src/parser"/>
+
+<echo>Generating Parser...</echo>
+<target name="build.OCL_Parser">
+	<mkdir dir="${build.classes.parser.dir}"/>
+	<java classname="org.antlr.Tool" dir="${parser.dir}/ocl" fork="yes">
+      <classpath path="${antlr.jar}"/>
+      <arg line="OCL.g"/>
+    </java>
+</target>
+
+<echo>Compiling atongmu...</echo>
+<target name="build" depends="build.OCL_Parser">
+	 <mkdir dir="${build.classes.dir}"/>
+	 <javac srcdir="${src.dir}" destdir="${build.classes.dir}" 
+    	  deprecation="on" debug="on" listfiles="off" 
+    	  source="${java.sourceversion}" target="${java.targetversion}">
+	 </javac>
+</target>
+</project>

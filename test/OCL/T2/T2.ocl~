@@ -1,0 +1,11 @@
+package T2
+
+context Person
+	inv: self.age > 0 and self.age <=99
+
+context Dad
+	inv: self.age > 30
+	inv: Dad.allInstances()->forAll(d|
+			Son.allInstances()->forAll(s|d.age > s.age))
+	
+endpackage T2

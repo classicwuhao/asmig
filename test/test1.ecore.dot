@@ -1,0 +1,7 @@
+digraph instance{
+//objects to be shown 
+c1 [shape=box color=red fillcolor=orange style=filled fontsize=11 label="c1:C"];
+a1 [shape=box color=red fillcolor=orange style=filled fontsize=11 label="a1:A"];
+b1 [shape=box color=red fillcolor=orange style=filled fontsize=11 label="b1:B"];
+
+ }

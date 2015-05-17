@@ -1,0 +1,5 @@
+package atongmu.util;
+
+public interface IntValue extends Value{
+	int value;
+}

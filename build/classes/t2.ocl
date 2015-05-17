@@ -1,0 +1,24 @@
+package T2
+	--constraints defined over the model.
+context P
+	--inv:
+	--	A.allInstances()->forAll(a:A| B.allInstances()->exists(b:B| b.id > a.id))
+	--inv:
+	--	self.id >= 20 and self.id <= 66
+	--inv:
+	--	self.id > 0
+
+	--inv:
+	--	A.allInstances()->forAll(a:A|
+	--		C.allInstances()->forAll(c:C|
+	--			a.id = c.id implies a.level = c.level))
+
+	--inv: A.allInstances()->exists(a|a.level=#Level::level2)
+	--inv: A.id > 10 and A.id < 15
+	-- inv: self.id > 10 and self.id < 15
+	-- inv: P.allInstances()->exists(p|p.id = -1)
+
+context A
+	--inv: self.ref->forAll(b|b.id > 50)
+	-- inv a: self.ref->forAll(b|b.id > 50)
+endpackage

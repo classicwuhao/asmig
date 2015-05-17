@@ -1,0 +1,6 @@
+package T3
+
+context Tree
+	inv: Tree.allInstances()->exists(t|t.balanced)
+
+endpackage T3

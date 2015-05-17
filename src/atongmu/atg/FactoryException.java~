@@ -1,0 +1,16 @@
+
+package atongmu.atg;
+import java.lang.RuntimeException;
+
+public final class FactoryException extends RuntimeException{
+	private String message;
+
+	public FactoryException(String m){
+		message = m;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+	
+}

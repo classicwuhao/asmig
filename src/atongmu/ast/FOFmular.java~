@@ -1,0 +1,9 @@
+package atongmu.ast;
+import java.util.*;
+
+public class FOFmular{
+	List<Expression>		
+
+	
+
+}

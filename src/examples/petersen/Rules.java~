@@ -1,0 +1,28 @@
+/**
+ *	Rules for coloring a petersen graph
+ *  Written by: Hao Wu
+ *  Bug reports to: haowu@cs.num.ie
+ */
+
+package examples.petersen;
+
+import atongmu.ast.FOFormula;
+import atongmu.util.Pair;
+
+public final class Rule{
+	private Petersen pgraph;
+	private final int color=3;
+	private FOFormula formula = new FOFormula();
+
+	public Rule(Petersen graph){pgrah=graph;}
+	
+	private void EncodeRule(){
+
+		FOFormula.Range(0,color,pgraph.getOutter());
+
+		for (Pair p : pgraph.getEdges()){
+						
+		}
+	}
+
+}

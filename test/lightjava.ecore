@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lightjava"
+    nsPrefix="">
+  <eSubpackages name="types">
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeReference" abstract="true" eSuperTypes="#//commons/Commentable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PrimitiveType" abstract="true" eSuperTypes="#//types/Type #//types/TypeReference"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Bool" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Byte" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Int" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Long" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Short" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Char" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Double" eSuperTypes="#//types/PrimitiveType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Float" eSuperTypes="#//types/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Void" eSuperTypes="#//types/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="TypedElement" abstract="true" eSuperTypes="#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="typeReference" eType="#//types/TypeReference"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="commons">
+    <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" eSuperTypes="#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NamespaceAwareElement" abstract="true"
+        eSuperTypes="#//commons/Commentable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="namespaces" upperBound="-1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Commentable" abstract="true"/>
+  </eSubpackages>
+  <eSubpackages name="classifiers">
+    <eClassifiers xsi:type="ecore:EClass" name="Classifier" abstract="true" eSuperTypes="#//types/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ConcreteClassifier" abstract="true"
+        eSuperTypes="#//classifiers/Classifier #//members/Member #//members/MemberContainer"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//classifiers/ConcreteClassifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//types/TypeReference"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="members">
+    <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true" eSuperTypes="#//commons/NamedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="MemberContainer" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+          eType="#//members/Member"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Field" eSuperTypes="#//members/Member"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Method" abstract="true" eSuperTypes="#//members/Member #//types/TypedElement #//modifiers/AnnotableAndModifiable"/>
+    <eClassifiers xsi:type="ecore:EClass" name="ClassMethod" eSuperTypes="#//members/Method"/>
+  </eSubpackages>
+  <eSubpackages name="variables">
+    <eClassifiers xsi:type="ecore:EClass" name="Variable" abstract="true" eSuperTypes="#//commons/NamedElement #//types/TypedElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalVariable" eSuperTypes="#//variables/Variable"/>
+  </eSubpackages>
+  <eSubpackages name="modifiers">
+    <eClassifiers xsi:type="ecore:EClass" name="Modifier" abstract="true" eSuperTypes="#//modifiers/AnnotationInstanceOrModifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotationInstanceOrModifier" abstract="true"/>
+    <eClassifiers xsi:type="ecore:EClass" name="AnnotableAndModifiable" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" eType="#//modifiers/AnnotationInstanceOrModifier"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Private" eSuperTypes="#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Protected" eSuperTypes="#//modifiers/Modifier"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Public" eSuperTypes="#//modifiers/Modifier"/>
+  </eSubpackages>
+</ecore:EPackage>

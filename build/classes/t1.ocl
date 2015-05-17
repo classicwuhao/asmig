@@ -1,0 +1,12 @@
+package T1
+--constraints defined over the model.
+context A
+	inv:
+		A.allInstances()->forAll(a:A| B.allInstances()->exists(b:B| b.id > a.id))
+
+	inv: self.id > 0
+
+context B
+	inv: self.id > 0
+
+endpackage

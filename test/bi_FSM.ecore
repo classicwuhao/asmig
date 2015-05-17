@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="FSM"
+    nsURI="http:///org/nuim/cs/FSM.ecore" nsPrefix="org.nuim.cs">
+  <eClassifiers xsi:type="ecore:EClass" name="StateMachine">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="code" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="states" lowerBound="1"
+        upperBound="-1" eType="#//AbstractState" changeable="false" containment="true"
+        eOpposite="#//AbstractState/statemachine"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transitions" lowerBound="1"
+        upperBound="-1" eType="#//Transition" changeable="false" containment="true"
+        eOpposite="#//Transition/statemachine"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbstractState" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="envs" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/src"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" upperBound="-1"
+        eType="#//Transition" eOpposite="#//Transition/tar"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statemachine" lowerBound="1"
+        eType="#//StateMachine" eOpposite="#//StateMachine/states"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StartState" eSuperTypes="#//AbstractState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//AbstractState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EndState" eSuperTypes="#//AbstractState"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="src" lowerBound="1" eType="#//AbstractState"
+        eOpposite="#//AbstractState/source"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tar" lowerBound="1" eType="#//AbstractState"
+        eOpposite="#//AbstractState/target"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statemachine" lowerBound="1"
+        eType="#//StateMachine" eOpposite="#//StateMachine/transitions"/>
+  </eClassifiers>
+</ecore:EPackage>

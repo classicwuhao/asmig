@@ -1,0 +1,7 @@
+package T1
+
+context A
+	inv: self.id > 0
+	inv: A.allInstances()->isUnique(a:A|a.id)
+
+endpackage T1

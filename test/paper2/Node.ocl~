@@ -1,0 +1,6 @@
+package Node
+
+context Node
+	inv: Node.allInstances()->isUnique(n:Node|n.code)
+
+endpackage

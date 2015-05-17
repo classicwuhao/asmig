@@ -1,0 +1,5 @@
+package atongmu.ast
+
+public abstract class FunName{
+	
+}

@@ -1,0 +1,15 @@
+package atongmu.ast;
+import java.lang.RuntimeException;
+
+public final class FormulaException extends RuntimeException{
+	private String message;
+	
+	public FormulaException(String m){
+		message = m;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+	
+}

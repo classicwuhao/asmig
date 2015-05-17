@@ -1,0 +1,7 @@
+package atongmu.smt;
+
+public enum Result{
+	SAT {public String toString(){return "sat";}},
+	UNSAT {public String toString(){return "unsat";}},
+	UNKNOWN {public String toString(){return "unkown";}};
+}

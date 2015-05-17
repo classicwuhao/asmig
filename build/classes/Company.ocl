@@ -1,0 +1,20 @@
+package Company
+
+context Person
+	inv: self.age > 20 and self.age < 66
+	inv: self.salary >= 1000 and self.salary <= 9999
+	inv: Person.allInstances()->exists(p|p.gender=#Gender::Female)
+
+context Worker
+	inv: self.level=#Level::Expert implies self.salary >= 5500
+	
+context Manager
+	inv: Manager.allInstances()->exists(m|m.age > 50 and m.age < 55)
+	inv: Manager.allInstances()->forAll(m:Manager|Worker.allInstances()->exists(w:Worker|w.salary > m.salary))
+	inv: Manager.allInstances()->forAll(m:Manager|Worker.allInstances()->forAll(w:Worker|w.age < m.age))
+
+context Department
+	--inv: Department.allInstances()->forAll(d|d.employee->excludes(d))
+	inv: self.employee->isUnique(w:Worker|w.age)
+	--select(w:Worker|w.age>50)->size()>2
+endpackage

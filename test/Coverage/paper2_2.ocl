@@ -1,0 +1,7 @@
+package DriverCar
+
+context Driver
+	inv: self.age>=18
+
+endpackage
+

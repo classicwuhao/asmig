@@ -1,0 +1,7 @@
+package atongmu.smt;
+
+public enum Solver{
+	MATHSAT{public String toString(){return "mathsat";}},
+	SMTINTERPOL{public String toString(){return "smtinterpol";}},
+	Z3 {public String toString(){return "z3";}};
+}

@@ -1,0 +1,16 @@
+
+package atongmu.translator;
+import java.lang.RuntimeException;
+
+public final class BoundException extends RuntimeException{
+	private String message;
+
+	public BoundException(String m){
+		message = m;
+	}
+
+	public String getMessage(){
+		return message;
+	}
+	
+}

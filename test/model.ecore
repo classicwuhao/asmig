@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="model"
+    nsURI="http:///org/nuim/use/uml/model.ecore" nsPrefix="org.nuim.use.uml.model">
+  <eClassifiers xsi:type="ecore:EClass" name="BasicType" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="IntegerType" eSuperTypes="#//BasicType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MAttribute" eSuperTypes="#//MModelElementEx">
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//MClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"
+        resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MClass" eSuperTypes="#//MModelElementEx">
+    <eOperations name="getAbstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="setAbstract">
+      <eParameters name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eOperations name="addAttribute">
+      <eParameters name="attr" eType="#//MAttribute"/>
+    </eOperations>
+    <eOperations name="addOperation">
+      <eParameters name="op" eType="#//MOperation"/>
+    </eOperations>
+    <eOperations name="addAssociation">
+      <eParameters name="a" eType="#//MAssociation"/>
+    </eOperations>
+    <eOperations name="addParent">
+      <eParameters name="c" eType="#//MClass"/>
+    </eOperations>
+    <eOperations name="addChild">
+      <eParameters name="c" eType="#//MClass"/>
+    </eOperations>
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
+        eType="#//MAttribute" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operations" upperBound="-1"
+        eType="#//MOperation" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associations" upperBound="-1"
+        eType="#//MAssociation" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parents" upperBound="-1"
+        eType="#//MClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//MClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MMVisitor"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MModel" eSuperTypes="#//MModelElementEx">
+    <eOperations name="addClass">
+      <eParameters name="cls" eType="#//MClass"/>
+    </eOperations>
+    <eOperations name="addClassInvariant">
+      <eParameters name="inv" eType="#//MClassInvariant"/>
+    </eOperations>
+    <eOperations name="addPrePostCondition">
+      <eParameters name="ppc" eType="#//MPrePostCondition"/>
+    </eOperations>
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classes" upperBound="-1"
+        eType="#//MClass" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="classInvariant" upperBound="-1"
+        eType="#//MClassInvariant" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="prePostCondition" upperBound="-1"
+        eType="#//MPrePostCondition" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MModelElement">
+    <eOperations name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MModelElementEx" eSuperTypes="#//MModelElement">
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MOperation" eSuperTypes="#//MModelElementEx">
+    <eOperations name="addVarDecl">
+      <eParameters name="vd" eType="#//VarDecl"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="owner" eType="#//MClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resultType" eType="#//Type"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="varDecls" upperBound="-1"
+        eType="#//VarDecl" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RealType" eSuperTypes="#//BasicType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="StringType" eSuperTypes="#//BasicType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="typeId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VarDecl">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"
+        resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="var" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Comparable" instanceClassName="java.lang.Comparable"
+      abstract="true" interface="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elemType" eType="#//Type"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetType" eSuperTypes="#//CollectionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mClass" eType="#//MClass"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BagType" eSuperTypes="#//CollectionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EnumType" eSuperTypes="#//Type">
+    <eOperations name="addLiteral">
+      <eParameters name="literal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="literals" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OclAnyType" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequenceType" eSuperTypes="#//CollectionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanType" eSuperTypes="#//BasicType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MAssociation" eSuperTypes="#//MModelElementEx">
+    <eOperations name="addAssociationEnd">
+      <eParameters name="ae" eType="#//MAssociationEnd"/>
+    </eOperations>
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="associationEnds" upperBound="-1"
+        eType="#//MAssociationEnd" containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="aggregationKind" eType="#//MAggregationKind"
+        containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MAssociationEnd" eSuperTypes="#//MModelElementEx">
+    <eOperations name="getOrdered" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getNavigation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getExplicitNavigation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="association" eType="#//MAssociation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mClass" eType="#//MClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mMultiplicity" eType="#//MMultiplicity"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kind" eType="#//MAggregationKind"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mClassName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MMultiplicity">
+    <eOperations name="addRange">
+      <eParameters name="r" eType="#//MRange"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ranges" upperBound="-1"
+        eType="#//MRange" containment="true" resolveProxies="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MAggregationKind">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MRange">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MAssociationClass" eSuperTypes="#//MClass #//MAssociation">
+    <eOperations name="processWithVisitor">
+      <eParameters name="v" eType="#//MMVisitor"/>
+    </eOperations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MNavigableElement">
+    <eOperations name="getType" eType="#//Type">
+      <eParameters name="src" eType="#//MNavigableElement"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cls" eType="#//MClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="association" eType="#//MAssociation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameAsRolename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MClassInvariant" eSuperTypes="#//MModelElement">
+    <eOperations name="getHasVars" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="getIsExistential" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vars" eType="ecore:EClass oclmm.ecore#//VarDeclList"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cls" eType="#//MClass"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass oclmm.ecore#//Expression"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expanded" eType="ecore:EClass oclmm.ecore#//Expression"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="positionInModel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MPrePostCondition" eSuperTypes="#//MModelElement">
+    <eOperations name="getIsPre" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eOperations name="setPre">
+      <eParameters name="b" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eOperations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//MOperation"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass oclmm.ecore#//Expression"
+        containment="true" resolveProxies="false"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="positionInModel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedSetType" eSuperTypes="#//CollectionType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Part">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TupleType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="parts">
+      <eGenericType eClassifier="#//Map">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+        <eTypeArguments eClassifier="#//Part"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VoidType" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EDataType" name="Map" instanceClassName="java.util.Map">
+    <eTypeParameters name="T"/>
+    <eTypeParameters name="T1"/>
+  </eClassifiers>
+</ecore:EPackage>

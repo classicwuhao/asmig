@@ -1,0 +1,6 @@
+package T1
+
+context A
+	inv: self.level>0
+
+endpackage

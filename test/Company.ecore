@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
+  <eClassifiers xsi:type="ecore:EClass" name="Department">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="existsIn" lowerBound="1"
+        eType="#//Company" eOpposite="#//Company/has"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" eType="#//Manager"
+        eOpposite="#//Manager/in"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" upperBound="-1" eType="#//Worker"
+        eOpposite="#//Worker/worksin"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Company">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="has" lowerBound="1" upperBound="-1"
+        eType="#//Department" eOpposite="#//Department/existsIn"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Gender">
+    <eLiterals name="Male"/>
+    <eLiterals name="Female" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Level">
+    <eLiterals name="Junior"/>
+    <eLiterals name="Senior" value="1"/>
+    <eLiterals name="Expert" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Person" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="age" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gender" eType="#//Gender"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="salary" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Project"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Worker" eSuperTypes="#//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="workson" lowerBound="1"
+        upperBound="-1" eType="#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="worksin" lowerBound="1"
+        eType="#//Department" eOpposite="#//Department/has.1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" eType="#//Level"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Manager" eSuperTypes="#//Administrator #//Person">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="runs" eType="#//Project"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="supervise" lowerBound="1"
+        upperBound="-1" eType="#//Worker"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="in" lowerBound="1" eType="#//Department"
+        eOpposite="#//Department/has"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Administrator" abstract="true"/>
+</ecore:EPackage>

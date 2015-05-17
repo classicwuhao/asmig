@@ -1,0 +1,16 @@
+package A_Small_Example
+
+context Person
+	inv: self.age > 20 and self.age < 66
+	inv: self.salary >= 1000 and self.salary <= 9999
+	inv: Person.allInstances()->exists(p|p.gender=#Gender::Female)
+
+context Worker
+	inv: self.level=#Level::Expert implies self.salary >= 5500
+	
+context Manager
+	inv: Manager.allInstances()->exists(m|m.age > 50 and m.age < 55)
+	inv: Manager.allInstances()->forAll(m:Manager|Worker.allInstances()->exists(w:Worker|w.salary > m.salary))
+	inv: Manager.allInstances()->forAll(m:Manager|Worker.allInstances()->forAll(w:Worker|w.age < m.age))
+
+endpackage

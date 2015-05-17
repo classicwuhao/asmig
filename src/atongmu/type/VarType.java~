@@ -1,0 +1,8 @@
+package atongmu.type;
+
+public class VarType extends Type{
+	private String var;
+	public VarType(String n){var=n;}
+	public String toFun(){return var;}
+	public String toString(){return "("+var+")";}
+}

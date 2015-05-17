@@ -1,0 +1,6 @@
+package atongmu.smt;
+import atongmu.ast.Vars;
+
+public interface SMTSolver{
+	public abstract void solve(String s);
+}

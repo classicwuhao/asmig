@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="">
+  <eClassifiers xsi:type="ecore:EClass" name="Student" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="courses" upperBound="-1"
+        eType="#//Course"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Undergraduate" eSuperTypes="#//Student"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Postgraduate" eSuperTypes="#//Student"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Course" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Programming" eSuperTypes="#//Course"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Calculus" eSuperTypes="#//Course"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cryptography" eSuperTypes="#//Programming #//Calculus">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="advanced" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+</ecore:EPackage>

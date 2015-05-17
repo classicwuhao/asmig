@@ -1,0 +1,6 @@
+package atongmu.util;
+
+public interface Value{
+	
+	
+}
