@@ -3,7 +3,7 @@ ASMIG (A Small Metamodel Instance Generator)
 The current version of asmig is fully open source, purely command-line based.  A GUI for asmig is under development, will be published once it is finsihed.
 
 *Build Instructions for Linux :
-1) Make sure you include all the following packages can be detected by javac:
+1) Make sure you include all the following packages.
 	If you don't know how to do so, please see the following example:
 		CLASSPATH=:/home/usr1/org.eclipse.emf_2.5.0.v200906151043.jar
 		This include eclipse emf jar file when you compiling asmig.  Assume you have org.eclipse.emf_2.5.0.v200906151043.jar under directory of /home/usr
