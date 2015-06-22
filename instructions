@@ -44,5 +44,6 @@ NOTE: you may need to use command chmod +x Z3 to change Z3 SMT solver to be exec
 Currently, asmig dose not provide documentation for API(s), there are quite a lot of examples written under both example and test directories.
 A proper API documentation is under writing now, it will be avilable online shortly.
 
+NOTE:For larger metamodel, you may want to increase stack size by specifying -Xss <stack size> in your java command options.
 Hope you will be enjoying using asmig to solve your difficult problems. 
 Hao Wu
