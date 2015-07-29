@@ -1,6 +1,0 @@
-package atongmu.atg;
-
-public class Attribute extends Edge{
-	private String name;
-	private Type type;
-}

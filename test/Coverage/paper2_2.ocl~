@@ -1,7 +1,0 @@
-package DriverCar
-
-context Driver
-	self.age>=18
-
-endpackage
-

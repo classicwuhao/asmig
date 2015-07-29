@@ -1,9 +1,0 @@
-package atongmu.util;
-
-import java.util.*;
-
-public abstract class Iterator{
-
-	String toString();
-
-}

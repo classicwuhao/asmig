@@ -1,5 +1,0 @@
-package example
-
-context People
-inv:People.allInstances()->forAll(p|p.age >= 18)
-endpackage

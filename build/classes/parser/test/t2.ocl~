@@ -1,6 +1,0 @@
-package T1
-
-context A
-	inv: self.level=#Level.level3
-
-endpackage

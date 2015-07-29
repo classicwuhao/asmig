@@ -1,7 +1,0 @@
-package atongmu.type;
-
-public class BoolType extends Type{
-	public BoolType(){}
-	public String toFun(){return "Bool";}
-	public String toString(){return "(Bool)";}
-}

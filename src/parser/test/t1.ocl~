@@ -1,6 +1,0 @@
---package T1
-
-context ClassB 
-inv death_pre_isAlive:
-	self.age + self.id > 10
-

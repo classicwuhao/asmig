@@ -1,7 +1,0 @@
-package atongmu.type;
-
-public class IntType extends Type{
-	public IntType(){}
-	public String toFun(){return "Int";}
-	public String toString(){return "(Int)";}
-}

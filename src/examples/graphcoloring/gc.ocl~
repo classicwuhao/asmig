@@ -1,7 +1,0 @@
-package GraphColoring
-
-context Node
-	inv: self.adj <> self
-	inv: self.adj.color <> self.color
-endpackage
-

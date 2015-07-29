@@ -1,3 +1,0 @@
-
-This is an example of modeling graph coloring problem with metamodeling and ocl constraints.
-NOTE: Currently, ASMIG only supports a small subset of OCL. Thus, changing ocl constraints can result in uncorrect solutions. This example requires user to setup a bound.

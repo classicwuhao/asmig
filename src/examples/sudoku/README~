@@ -1,9 +1,0 @@
-A Sudoku Solver
-
-This is an example of demonstrating how to use ASMIG to solve your sudoku puzzle.
-A sudoku puzzle is a NP-complete problem. Thus, solving a sudoku puzzle is just like colouring a petersen graph.
-
-SPECIAL NOTES: The major difficult to work out 'invariant(s)' and formalise them into boolean circuits for any complicated (at least np-complete) puzzles or problems.  For this example, I have already worked out these rules for you, and programmed into Rules.java.  You may change these rules to suit other problems.
-In order to solve any sudoku puzzle, you may modify the input to ASMIG by chaning SudokuSolver.java.
-
-Have Fun!!!
