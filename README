@@ -5,8 +5,54 @@
 <<<<<<< HEAD
 ******************************************************Hao**Wu
 Public Version
-=======
-**************************************************by**Hao**Wu
-
 >>>>>>> 8d78a3bd2f72e4eda2645423d8e680b7179c7fdd
-For build instructions, please see instructions.txt
+
+ASMIG (A Small Metamodel Instance Generator)
+
+The current version of asmig is fully open source, purely command-line based. 
+
+*Build Instructions for Linux (Ubuntu) :
+1) Make sure you include all the following packages.
+	If you don't know how to do so, please see the following example:
+		CLASSPATH=:/home/usr1/org.eclipse.emf_2.5.0.v200906151043.jar
+		This will include eclipse emf jar file when you compiling asmig, assuming you have org.eclipse.emf_2.5.0.v200906151043.jar under directory of /home/usr
+		
+2) The complete list is as follows:
+			antlr-3.1.3.jar
+			org.eclipse.emf.common_2.5.0.v200906151043.jar
+			org.eclipse.emf.ecore.xmi_2.5.0.v200906151043.jar
+			org.eclipse.emf.ecore_2.5.0.v200906151043.jar
+			org.eclipse.emf.edit_2.5.0.v200906151043.jar
+			org.eclipse.emf_2.5.0.v200906151043.jar
+			
+3) Once you have them all included in your CLASSPATH, you can run ant to build asmig.
+NOTE: you may need to use command chmod +x Z3 to change Z3 SMT solver to be executable.  Curretly, asmig supports Z3 (v4.0) and smtinterpol.
+
+4) If the build is successful, you can try run some examples from build/classes/examples to make sure asmig is working.
+	In order to run these examples, for example, an Sudoku solver, type the following command:
+		"java examples.SudokuSolver"
+		press any numerical key that is >= 1
+		The solution should be printed on the screen.
+
+*Metamodel Instance Generation :
+1) A few driven programs have been written inside directory asmig/src/test, to generate metamodel instances you can type the following command:
+	Assume you are under the directory of build/classes
+	type "java testatg <ecore file> <ocl file>"
+	type "java gendia" to produce dot format graphs (Assume you have dot installed on your machine)
+	
+2) To generate instances that satisfy partition-based criteria
+	Assume you are under the directory of build/classes
+	type "java testpbf <ecore file>"
+	type "java gendia" to produce dot format graphs (Assume you have dot installed on your machine)
+	
+3) To generate instances that satisfy graph-based criteria:
+	Assume you are under the directory of build/classes
+	type "java testmetrics <ecore file>"
+	type "java gendia" to produce dot format graphs (Assume you have dot installed on your machine)
+
+Currently, asmig dose not provide documentation for API(s), there are quite a lot of examples written under both example and test directories.
+A proper API documentation is under writing now, it will be avilable online shortly.
+
+NOTE:For larger metamodel, you may want to increase stack size by specifying -Xss <stack size> in your java command options.
+Hope you will be enjoying using asmig to solve your difficult problems. 
+Hao Wu
